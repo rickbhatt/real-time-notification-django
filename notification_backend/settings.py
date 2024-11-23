@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "rest_framework_simplejwt.token_blacklist",
     # apps
     "account.apps.AccountConfig",
+    "notification.apps.NotificationConfig",
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,9 @@ ROOT_URLCONF = "notification_backend.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            os.path.join(BASE_DIR, "templates"),
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

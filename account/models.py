@@ -7,18 +7,7 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from .managers import CustomUserManager, ActiveUsersManager
 
 
-class AllBoolChecks(models.Model):
-    is_suspended = models.BooleanField(default=False)
-
-    is_payment_defaulter = models.BooleanField(default=False)
-
-    is_profile_available = models.BooleanField(default=False)
-
-    class Meta:
-        abstract = True
-
-
-class CustomUser(AbstractBaseUser, PermissionsMixin, AllBoolChecks):
+class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     id = models.UUIDField(primary_key=True, editable=False, default=uuid.uuid4)
 
@@ -36,9 +25,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin, AllBoolChecks):
     active_objects = ActiveUsersManager()
 
     USERNAME_FIELD = "email"
-
-    class Meta:
-        managed = False
 
     def __str__(self):
         return f"{self.email} | {self.id}"
