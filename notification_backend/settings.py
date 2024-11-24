@@ -22,7 +22,7 @@ SECRET_KEY = "django-insecure-9vsmw^-@ck0p%7b%p_og&1jnz+29y^23!a7g4l4026-09c1=i4
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.29.59", "127.0.0.1", "localhost"]
 
 
 INSTALLED_APPS = [
@@ -128,6 +128,10 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_REFRESH_LIFETIME": timedelta(days=1),
 }
 
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000", "http://192.168.29.59:3000"]
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://192.168.29.59:3000"]
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
