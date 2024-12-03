@@ -10,6 +10,7 @@ def send_push_notification(sender, instance, created, **kwargs):
     if created:
 
         notification_data = {
+            "id": instance.id,
             "title": instance.title,
             "message": instance.message,
             "status": instance.status,
