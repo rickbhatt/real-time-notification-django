@@ -25,13 +25,13 @@ class NotificationConsumer(AsyncWebsocketConsumer):
             await self.channel_layer.group_add(self.room_group_name, self.channel_name)
             await self.accept()
             logger.info(f"User {self.user.id} connected to notifications")
-            await self.send(
-                text_data=json.dumps(
-                    {
-                        "message": "Ready to send notifications",
-                    }
-                )
-            )
+            # await self.send(
+            #     text_data=json.dumps(
+            #         {
+            #             "message": "Ready to send notifications",
+            #         }
+            #     )
+            # )
 
         except Exception as e:
             logger.error(f"Error in connection setup: {str(e)}")
