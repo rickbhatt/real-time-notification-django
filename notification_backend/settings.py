@@ -63,7 +63,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(BASE_DIR, "templates"),
+            os.path.join(BASE_DIR, "dist"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -177,13 +177,14 @@ USE_L10N = True
 
 USE_TZ = False
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "assets/"
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+STATIC_ROOT = BASE_DIR / "staticfiles"  # For collectstatic
+
+# Additional locations of static files
+STATICFILES_DIRS = [BASE_DIR / "dist/assets"]  # Your build output directory
+
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 

@@ -21,7 +21,6 @@ dist/assets/
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
